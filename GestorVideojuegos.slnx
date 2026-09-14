@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="GestorVideojuegos.Api/GestorVideojuegos.Api.csproj" />
+  <Project Path="GestorVideojuegos.Application/GestorVideojuegos.Application.csproj" />
+  <Project Path="GestorVideojuegos.Domain/GestorVideojuegos.Domain.csproj" />
+  <Project Path="GestorVideojuegos.Infrastructure/GestorVideojuegos.Infrastructure.csproj" />
+</Solution>
