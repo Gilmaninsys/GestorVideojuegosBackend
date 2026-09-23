@@ -6,7 +6,6 @@ public class GameDto
     public string Title { get; set; } = string.Empty;
     public string BoxArtUrl { get; set; } = string.Empty;
     public bool IsFavorite { get; set; }
-    
-    // Nota: Omitimos el TwitchId y el CreatedAt porque el Frontend 
-    // no los necesita para renderizar el catálogo con scroll infinito.
+    public string Category { get; set; } = string.Empty;
+    public int Year { get; set; }
 }

@@ -4,6 +4,8 @@ namespace GestorVideojuegos.Application.Interfaces;
 
 public interface IGameService
 {
-    Task<IEnumerable<GameDto>> GetAllGamesAsync();
-    Task<GameDto> CreateGameAsync(GameDto gameDto);
+    Task<IEnumerable<GameDto>> GetAllGamesAsync(string userId);
+    Task<GameDto> CreateGameAsync(GameDto gameDto, string userId);
+    Task UpdateGameAsync(GameDto gameDto, string userId);
+    Task DeleteGameAsync(Guid id, string userId);
 }

@@ -41,7 +41,7 @@ public class AuthController : ControllerBase
         {
             HttpOnly = true, // El navegador esconde esta cookie de JavaScript (Evita XSS)
             Secure = true,   // Solo viaja por conexiones seguras HTTPS
-            SameSite = SameSiteMode.Lax,
+            SameSite = SameSiteMode.None,
             Expires = DateTime.UtcNow.AddHours(2)
         };
 

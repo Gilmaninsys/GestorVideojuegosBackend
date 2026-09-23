@@ -34,6 +34,16 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAuthService, GestorVideojuegos.Application.Services.AuthService>();
 // 5. Agregar soporte para Controladores
 builder.Services.AddControllers();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("FrontendPolicy", policy =>
+    {
+        policy.WithOrigins("http://localhost:5173") // La URL exacta de tu Vue
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowCredentials(); // ¡ESTO ES VITAL PARA ACEPTAR LAS COOKIES!
+    });
+});
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -82,6 +92,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCors("FrontendPolicy");
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers(); // Habilitar las rutas de los controladores
