@@ -5,6 +5,7 @@ public class TierList
     public Guid Id { get; set; }
     public string Name { get; set; } = string.Empty; // Ej: "Mis RPGs Favoritos"
     public string UserId { get; set; } = string.Empty; // El dueño del tablero
+    public string DatosJSON { get; set; } = string.Empty;
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
     // Relación: Una Tier List tiene muchos elementos dentro

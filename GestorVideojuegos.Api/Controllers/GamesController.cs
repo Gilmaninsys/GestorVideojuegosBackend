@@ -56,4 +56,14 @@ public class GamesController : ControllerBase
         await _gameService.DeleteGameAsync(id, userId!);
         return NoContent();
     }
+    [AllowAnonymous]
+    [HttpGet("/api/public/tierlists")]
+    public async Task<IActionResult> GetPublicRanking()
+    {
+        // Este endpoint es consumible externamente usando la API Key
+        // En un caso real, aquí podrías devolver las Tier Lists marcadas como públicas
+        var allGames = await _gameService.GetAllGamesAsync("sistema"); // O un método específico en el servicio
+        return Ok(new { message = "Datos públicos obtenidos exitosamente", data = allGames });
+    }
+
 }
