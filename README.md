@@ -25,3 +25,20 @@ Esta es la API RESTful construida en **.NET 8** bajo los principios de **Clean A
 ```bash
 git clone [https://github.com/Gilmaninsys/GestorVideojuegosBackend.git](https://github.com/Gilmaninsys/GestorVideojuegosBackend.git)
 cd GestorVideojuegosBackend
+
+2. Configurar Variables de Entorno (.env)
+Crea un archivo .env en la carpeta raíz del proyecto (donde se ubica la API) con la siguiente estructura. Nunca subas secretos al appsettings.json:
+
+Fragmento de código
+DB_CONNECTION_STRING="Server=(localdb)\\MSSQLLocalDB;Database=GVIDEOJUEGOS;Trusted_Connection=True;TrustServerCertificate=True;"
+JWT_SECRET="MiClaveSuperSecretaYMuyLargaParaElGestorDeVideojuegos2026**"
+API_KEY="MiApiKeyPublicaParaGestorVideojuegos123"
+3. Aplicar Migraciones a la Base de Datos
+Abre tu terminal en la carpeta principal de la solución y ejecuta:
+
+Bash
+dotnet ef database update --project GestorVideojuegos.Infrastructure
+4. Ejecutar la API
+Bash
+dotnet run --project GestorVideojuegos.Api
+La API y su documentación interactiva con Scalar estarán disponibles (por defecto) en https://localhost:7036.
